@@ -48,14 +48,17 @@ footer {
   color: white;
 }
 
-.weather-info {
+.weather-container {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
-  flex-wrap: wrap;
-  font-size: 2rem;
+  font-size: 1rem;
   color: white;
   border: 1px solid black;
   width: 20%;
+}
+
+.weather-info {
+  margin: 0 0;
 }

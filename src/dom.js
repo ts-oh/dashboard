@@ -15,8 +15,24 @@ const htmlElements = () => {
   footer.appendChild(authorInfo);
 
   const weatherInfo = document.createElement("section");
-  weatherInfo.setAttribute("class", "weather-info");
+  weatherInfo.setAttribute("class", "weather-container");
   header.appendChild(weatherInfo);
+
+  const cityInfo = document.createElement("p");
+  cityInfo.setAttribute("class", "weather-info");
+  weatherInfo.appendChild(cityInfo);
+
+  const tempInfo = document.createElement("p");
+  tempInfo.setAttribute("class", "weather-info");
+  weatherInfo.appendChild(tempInfo);
+
+  const descriptionInfo = document.createElement("p");
+  descriptionInfo.setAttribute("class", "weatherInfo");
+  weatherInfo.appendChild(descriptionInfo);
+
+  const humidityInfo = document.createElement("p");
+  humidityInfo.setAttribute("class", "weather-info");
+  weatherInfo.appendChild(humidityInfo);
 
   return Object.freeze({
     bgContainer,
@@ -24,6 +40,10 @@ const htmlElements = () => {
     footer,
     authorInfo,
     weatherInfo,
+    cityInfo,
+    tempInfo,
+    humidityInfo,
+    descriptionInfo,
   });
 };
 

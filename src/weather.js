@@ -1,4 +1,5 @@
 import { pageBody } from "./dom.js";
+import { upperCase } from "./utility.js";
 
 const getWeather = async () => {
   const success = async (position) => {
@@ -10,10 +11,14 @@ const getWeather = async () => {
     const response = await fetch(apiUrl);
     const data = await response.json();
     console.log(data);
-    const locationName = data.name;
-    const currentTemp = (data.main.temp - 273.15).toFixed(1);
-    const humidity = `${data.main.humidity}%`;
-    pageBody.weatherInfo.textContent = `${locationName}: ${currentTemp}℃ / ${humidity}`;
+    const locationName = `Location: ${data.name}, ${data.sys.country}`;
+    const temperature = `Temperature: ${(data.main.temp - 273.15).toFixed(1)}℃`;
+    const humidity = `Humidity: ${data.main.humidity}%`;
+    const description = data.weather[0].description;
+    pageBody.cityInfo.textContent = locationName;
+    pageBody.tempInfo.textContent = temperature;
+    pageBody.humidityInfo.textContent = humidity;
+    pageBody.descriptionInfo.textContent = upperCase(description);
   };
 
   const error = (error) => {
