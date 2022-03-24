@@ -22,13 +22,13 @@ const htmlElements = () => {
   cityInfo.setAttribute("class", "weather-info");
   weatherInfo.appendChild(cityInfo);
 
-  const tempInfo = document.createElement("p");
-  tempInfo.setAttribute("class", "weather-info");
-  weatherInfo.appendChild(tempInfo);
-
   const descriptionInfo = document.createElement("p");
   descriptionInfo.setAttribute("class", "weather-info");
   weatherInfo.appendChild(descriptionInfo);
+
+  const tempInfo = document.createElement("p");
+  tempInfo.setAttribute("class", "weather-info");
+  weatherInfo.appendChild(tempInfo);
 
   const humidityInfo = document.createElement("p");
   humidityInfo.setAttribute("class", "weather-info");
@@ -46,7 +46,23 @@ const htmlElements = () => {
   timeInfo.setAttribute("class", "time-info");
   timeDateContainer.appendChild(timeInfo);
 
-  return Object.freeze({
+  const searchContainer = document.createElement("section");
+  searchContainer.setAttribute("class", "search-container");
+  mainContainer.appendChild(searchContainer);
+
+  const searchForm = document.createElement("form");
+  searchForm.setAttribute("class", "search-form");
+  searchForm.setAttribute("name", "search-form");
+  searchContainer.appendChild(searchForm);
+
+  const inputArea = document.createElement("input");
+  inputArea.setAttribute("name", "search-form");
+  inputArea.setAttribute("class", "input-box");
+  inputArea.setAttribute("placeholder", "Search with Google");
+  inputArea.setAttribute("type", "text");
+  searchContainer.appendChild(inputArea);
+
+  return {
     bgContainer,
     mainContainer,
     footer,
@@ -59,7 +75,8 @@ const htmlElements = () => {
     timeDateContainer,
     timeInfo,
     dateInfo,
-  });
+    inputArea,
+  };
 };
 
 const pageBody = htmlElements();

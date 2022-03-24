@@ -11,9 +11,9 @@ const getWeather = async () => {
     const response = await fetch(apiUrl);
     const data = await response.json();
     console.log(data);
-    const locationName = `Location: ${data.name}, ${data.sys.country}`;
-    const temperature = `Temperature: ${(data.main.temp - 273.15).toFixed(1)}℃`;
-    const humidity = `Humidity: ${data.main.humidity}%`;
+    const locationName = `${data.name}, ${data.sys.country}`;
+    const temperature = `${(data.main.temp - 273.15).toFixed(1)}℃ degrees`;
+    const humidity = `${data.main.humidity}% humidity`;
     const description = data.weather[0].description;
     pageBody.cityInfo.textContent = locationName;
     pageBody.tempInfo.textContent = temperature;
