@@ -10,11 +10,11 @@ const getWeather = async () => {
 
     const response = await fetch(apiUrl);
     const data = await response.json();
-    console.log(data);
     const locationName = `${data.name}, ${data.sys.country}`;
     const temperature = `${(data.main.temp - 273.15).toFixed(1)}℃ degrees`;
     const humidity = `${data.main.humidity}% humidity`;
     const description = data.weather[0].description;
+
     pageBody.cityInfo.textContent = locationName;
     pageBody.tempInfo.textContent = temperature;
     pageBody.humidityInfo.textContent = humidity;
@@ -22,7 +22,9 @@ const getWeather = async () => {
   };
 
   const error = (error) => {
-    console.log(error);
+    error
+      ? (pageBody.locationError.textContent = `Weather Information Fetch Error: Please Allow Location Permission`)
+      : "location error";
   };
 
   navigator.geolocation.getCurrentPosition(success, error);

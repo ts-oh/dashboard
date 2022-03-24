@@ -6,8 +6,8 @@ const getImage = async () => {
   );
   const data = await response.json();
 
-  pageBody.bgContainer.style.backgroundImage = `url(${data.urls.full})`;
-  pageBody.authorInfo.textContent = `Background photo by: ${data.user.name}`;
+  pageBody.bgContainer.style.backgroundImage = `url(${data.urls.full}`;
+  pageBody.authorInfo.textContent = `Background photo by: '${data.user.name}'`;
 };
 
 const getBgImage = getImage();

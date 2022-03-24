@@ -18,6 +18,10 @@ const htmlElements = () => {
   weatherInfo.setAttribute("class", "weather-container");
   header.appendChild(weatherInfo);
 
+  const locationError = document.createElement("p");
+  locationError.setAttribute("class", "getweather-err");
+  weatherInfo.appendChild(locationError);
+
   const cityInfo = document.createElement("p");
   cityInfo.setAttribute("class", "weather-info");
   weatherInfo.appendChild(cityInfo);
@@ -46,6 +50,10 @@ const htmlElements = () => {
   timeInfo.setAttribute("class", "time-info");
   timeDateContainer.appendChild(timeInfo);
 
+  const greetUser = document.createElement("p");
+  greetUser.setAttribute("class", "greet");
+  mainContainer.appendChild(greetUser);
+
   const searchContainer = document.createElement("section");
   searchContainer.setAttribute("class", "search-container");
   mainContainer.appendChild(searchContainer);
@@ -68,6 +76,7 @@ const htmlElements = () => {
     footer,
     authorInfo,
     weatherInfo,
+    locationError,
     cityInfo,
     tempInfo,
     humidityInfo,
@@ -76,6 +85,7 @@ const htmlElements = () => {
     timeInfo,
     dateInfo,
     inputArea,
+    greetUser,
   };
 };
 

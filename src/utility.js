@@ -26,4 +26,17 @@ inputBoxKey.addEventListener("keyup", (e) => {
   }
 });
 
-export { upperCase, getSearchInputValue };
+const greetUser = () => {
+  const hrsNow = new Date().getHours();
+  if (hrsNow < 12) {
+    pageBody.greetUser.textContent = "Good Morning";
+  } else if (hrsNow >= 12 && hrsNow <= 17) {
+    pageBody.greetUser.textContent = "Good Afternoon";
+  } else if (hrsNow >= 17 && hrsNow <= 24) {
+    pageBody.greetUser.textContent = "Good Evening";
+  }
+};
+
+const displayGreet = greetUser();
+
+export { upperCase, getSearchInputValue, displayGreet };
