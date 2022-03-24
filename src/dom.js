@@ -10,7 +10,7 @@ const htmlElements = () => {
   const footer = document.createElement("footer");
   bgContainer.appendChild(footer);
 
-  const authorInfo = document.createElement("section");
+  const authorInfo = document.createElement("p");
   authorInfo.setAttribute("class", "author-info");
   footer.appendChild(authorInfo);
 
@@ -27,12 +27,24 @@ const htmlElements = () => {
   weatherInfo.appendChild(tempInfo);
 
   const descriptionInfo = document.createElement("p");
-  descriptionInfo.setAttribute("class", "weatherInfo");
+  descriptionInfo.setAttribute("class", "weather-info");
   weatherInfo.appendChild(descriptionInfo);
 
   const humidityInfo = document.createElement("p");
   humidityInfo.setAttribute("class", "weather-info");
   weatherInfo.appendChild(humidityInfo);
+
+  const timeDateContainer = document.createElement("section");
+  timeDateContainer.setAttribute("class", "timedate-container");
+  header.appendChild(timeDateContainer);
+
+  const dateInfo = document.createElement("p");
+  dateInfo.setAttribute("class", "date-info");
+  timeDateContainer.appendChild(dateInfo);
+
+  const timeInfo = document.createElement("p");
+  timeInfo.setAttribute("class", "time-info");
+  timeDateContainer.appendChild(timeInfo);
 
   return Object.freeze({
     bgContainer,
@@ -44,6 +56,9 @@ const htmlElements = () => {
     tempInfo,
     humidityInfo,
     descriptionInfo,
+    timeDateContainer,
+    timeInfo,
+    dateInfo,
   });
 };
 
