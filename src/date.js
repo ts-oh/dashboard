@@ -15,11 +15,11 @@ const getTimeAndDate = () => {
   };
 
   const dateDisplay = new Date().toLocaleDateString("en-NZ", dateOptions);
-  pageBody.dateInfo.textContent = dateDisplay;
+  pageBody.dateInfo.textContent = `${dateDisplay}`;
 
   const updateTime = () => {
     const timeDisplay = new Date().toLocaleTimeString("en-NZ", timeOptions);
-    pageBody.timeInfo.textContent = timeDisplay;
+    pageBody.timeInfo.textContent = `${timeDisplay}`;
   };
   setInterval(updateTime, 1000);
 };

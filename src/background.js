@@ -5,9 +5,10 @@ const getImage = async () => {
     " https://apis.scrimba.com/unsplash/photos/random"
   );
   const data = await response.json();
-
+  console.log(data);
   pageBody.bgContainer.style.backgroundImage = `url(${data.urls.full}`;
-  pageBody.authorInfo.textContent = `Background photo by: '${data.user.name}'`;
+  pageBody.authorInfo.textContent = `📷 Background photo by: '${data.user.name}'`;
+  pageBody.gitRepoLink.textContent = `🐙 Git Repository`;
 };
 
 const getBgImage = getImage();

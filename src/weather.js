@@ -1,5 +1,4 @@
 import { pageBody } from "./dom.js";
-import { upperCase } from "./utility.js";
 
 const getWeather = async () => {
   const success = async (position) => {
@@ -10,20 +9,21 @@ const getWeather = async () => {
 
     const response = await fetch(apiUrl);
     const data = await response.json();
-    const locationName = `${data.name}, ${data.sys.country}`;
-    const temperature = `${(data.main.temp - 273.15).toFixed(1)}℃ degrees`;
-    const humidity = `${data.main.humidity}% humidity`;
-    const description = data.weather[0].description;
+    console.log(data);
+    const locationName = `🗺 ${data.name}, ${data.sys.country}`;
+    const temperature = `🌡 ${(data.main.temp - 273.15).toFixed(1)}℃`;
+    const humidity = `💦 ${data.main.humidity}%`;
+    const iconUrl = `http://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`;
 
+    pageBody.weatherIcon.src = iconUrl;
     pageBody.cityInfo.textContent = locationName;
     pageBody.tempInfo.textContent = temperature;
     pageBody.humidityInfo.textContent = humidity;
-    pageBody.descriptionInfo.textContent = upperCase(description);
   };
 
   const error = (error) => {
     error
-      ? (pageBody.locationError.textContent = `Weather Information Fetch Error: Please Allow Location Permission`)
+      ? (pageBody.locationError.textContent = `⛑ Weather Fetch Error: Please Allow Location Permission`)
       : "location error";
   };
 
