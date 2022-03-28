@@ -5,22 +5,29 @@
   box-sizing: border-box;
 }
 
-html,
-body {
+html {
   margin: 0;
   padding: 0;
 }
 
 body {
+  margin: 0;
+  padding: 0;
   display: grid;
   grid-template-rows: 2.5fr 7.5fr auto;
   height: 100vh;
   position: relative;
   background: no-repeat center center fixed;
   -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
   background-size: cover;
+}
+
+@media only screen and (max-width: 768px) {
+  body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
 }
 
 header {
@@ -28,6 +35,16 @@ header {
   display: flex;
   justify-content: space-between;
   height: fit-content;
+}
+
+@media only screen and (max-width: 768px) {
+  header {
+    min-width: 768px;
+    display: flex;
+    flex-direction: column;
+    height: fit-content;
+    align-items: center;
+  }
 }
 
 .weather-container {
@@ -69,6 +86,33 @@ header {
   font-size: 1.5rem;
 }
 
+@media only screen and (max-width: 768px) {
+  .weather-container {
+    width: fit-content;
+    align-items: center;
+    margin: 1em 0 0 0;
+  }
+  .weather-temp {
+    font-size: 1.25rem;
+    width: auto;
+  }
+
+  #weather-icon {
+    font-size: 1.25rem;
+    margin: 0 0;
+    width: 40px;
+  }
+
+  .weather-humidity {
+    margin: 0.25rem;
+    font-size: 1.25rem;
+  }
+  .weather-city {
+    margin: 0;
+    font-size: 1.25rem;
+  }
+}
+
 .timedate-container {
   width: 50%;
   height: fit-content;
@@ -93,6 +137,26 @@ header {
   margin: 0.25rem 2rem 0.25rem 0rem;
   padding: 0;
 }
+@media only screen and (max-width: 768px) {
+  .timedate-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 2rem 0 0 0;
+    padding: 0;
+  }
+  .date-info {
+    margin: 0;
+    font-size: 1.25rem;
+  }
+  .time-info {
+    margin: 0;
+    padding: 0;
+    font-size: 1.25rem;
+    text-align: center;
+  }
+}
 
 .main {
   grid-row: 2 / 3;
@@ -103,12 +167,13 @@ header {
   height: 100%;
 }
 
-.search-container {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  margin-top: 4rem;
+@media only screen and (max-width: 768px) {
+  .main {
+    display: flex;
+    flex-direction: column;
+    justify-content: baseline;
+    align-items: center;
+  }
 }
 
 .greet {
@@ -116,6 +181,14 @@ header {
   font-size: 4rem;
   margin: 1rem;
   margin: 1rem;
+}
+
+.search-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 4rem;
 }
 
 .input-box {
@@ -140,6 +213,25 @@ header {
   padding-top: 0.25rem;
 }
 
+@media only screen and (max-width: 768px) {
+  .search-container {
+    margin: 3rem 0 0 0;
+  }
+
+  .greet {
+    font-size: 2.5rem;
+    margin: 0 0 0.5rem 0;
+  }
+
+  .input-box {
+    width: 350px;
+    font-size: 1.25rem;
+    background-size: 1.5rem;
+    height: 50px;
+    margin: 0.5rem 1rem 1rem 1rem;
+  }
+}
+
 footer {
   grid-row: 3 / 4;
   display: flex;
@@ -159,4 +251,25 @@ footer {
   color: whitesmoke;
   margin: 1rem 2rem 1rem 0;
   text-decoration: none;
+}
+
+@media only screen and (max-width: 768px) {
+  footer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .author-info {
+    font-size: 1rem;
+    color: whitesmoke;
+    margin: 0.5rem;
+  }
+
+  .repo-link {
+    font-size: 1rem;
+    color: whitesmoke;
+    text-decoration: none;
+    margin: 0 0 1rem 0;
+  }
 }
